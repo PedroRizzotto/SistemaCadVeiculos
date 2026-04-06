@@ -96,14 +96,19 @@ void listar() {
 
 void buscarNome() {
     if (!listaVazia(veiculos)) {
+        ordenar(veiculos);
         String pesquisa = IO.readln("Digite o nome do carro: ");
         int i = 1;
+        int veiculosEncontrados = 0;
         for (String veiculoCad : veiculos) {
             if (veiculoCad.toLowerCase().contains(pesquisa.toLowerCase())) {
                 IO.println(i + " - " + veiculoCad);
+                veiculosEncontrados++;
             }
             i++;
         }
+        String frase = (veiculosEncontrados == 1) ? " veículo encontrado." : " veículos encontrados.";
+        IO.println(veiculosEncontrados + frase);
     } else
         IO.println("Não há nenhum veículo cadastrado.");
 }
