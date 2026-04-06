@@ -85,7 +85,8 @@ void cadastrar() {
 void listar() {
     if (!listaVazia(veiculos)) {
         veiculos = ordenar(veiculos);
-        IO.println("Veículos cadastrados:");
+        String frase = (veiculos.size() == 1) ? " Veículo cadastrado:" : " Veículos cadastrados:";
+        IO.println(veiculos.size() + frase);
         for (int i = 1; i <= veiculos.size(); i++) {
             IO.println(i + " - " + veiculos.get(i - 1));
         }
